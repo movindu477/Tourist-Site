@@ -1,0 +1,137 @@
+body{
+    background-color: black;
+}
+
+
+
+/* hotel main */
+.hotel-main {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.hotel-main img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+.hotel-main-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+}
+.hotel-main-content h1{
+    color: white;
+    font-size: 45px;
+}
+.hotel-main-content p{
+    color: white;
+    font-size: 19px;
+    line-height: 30px;
+}
+.hotel-main-content h1,
+.hotel-main-content p {
+    opacity: 0;
+    transform: translateX(100px); /* Start from the right */
+    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+.hotel-main.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+.hotel-main.show .hotel-main-content h1,
+.hotel-main.show .hotel-main-content p {
+    opacity: 1;
+    transform: translateX(0); 
+}
+@media (max-width: 768px) {
+    .hotel-main-content h1 {
+        font-size: 36px;
+    }
+    .hotel-main-content p {
+        font-size: 18px;
+        padding: 15px;
+    }
+}
+
+
+
+/* hotel grid */
+.hotel-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 40px;
+    max-width: 12000px;
+    margin: auto;
+    cursor: pointer;
+}
+.hotel-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+.hotel-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.hotel-image {
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+.hotel-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.5s ease-in-out;
+}
+.hotel-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #333;
+}
+.hotel-card p {
+    font-size: 16px;
+    color: #555;
+    margin: 5px 0;
+}
+.hotel-btn {
+    background-color: #13a548;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.hotel-btn:hover {
+    background-color: #3612d4;
+}
+@media (max-width: 1024px) {
+    .hotel-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 768px) {
+    .hotel-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
